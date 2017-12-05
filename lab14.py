@@ -14,12 +14,16 @@ def getTextFromFile(fileName):
     # Open the file if it exists - see https://stackoverflow.com/questions/82831/how-do-i-check-whether-a-file-exists-using-python
     if os.path.exists(path):
         file = open(path, "rt")
-        return file.read()
+        text = file.read()
+        file.close()
+        return text
     # Manually select file if not found
     else:
         print "File not found\nPlease select " + fileName
         file = open(pickAFile(), "rt")
-        return file.read()
+        text = file.read()
+        file.close()
+        return text
 
 # ---------- Part I ----------
 
@@ -30,7 +34,7 @@ def countWords():
     article = article.replace('-', ' ')
     
     print "Total Words = %s" % wordCountTotal(article) # print total word count
-        printDictionairy(wordCountIndividual(article)) #print individiual word count    
+    printDictionairy(wordCountIndividual(article)) #print individiual word count    
 
 def wordCountTotal(text):
     return len(text.split())
