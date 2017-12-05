@@ -24,14 +24,13 @@ def getTextFromFile(fileName):
 # ---------- Part I ----------
 
 def countWords():
-    article = getArticle("eggs.txt")
+    article = getTextFromFile("eggs.txt")
     article = article.replace('?', '')
     article = article.replace('!', '')
     article = article.replace('-', ' ')
     
-    print "Total Words = %s" % wordCountTotal(article) # print total words
-    printDictionairy(wordCountIndividual(article))
-    
+    print "Total Words = %s" % wordCountTotal(article) # print total word count
+        printDictionairy(wordCountIndividual(article)) #print individiual word count    
 
 def wordCountTotal(text):
     return len(text.split())
